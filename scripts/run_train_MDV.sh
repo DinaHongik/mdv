@@ -1,0 +1,12 @@
+python -m smartmap_mdv.train \
+  --csv_files nmo_dataset/all_log.csv \
+  --ablation MDV \
+  --epochs 20 \
+  --batch 8 \
+  --lr 5e-6 \
+  --varclr_weight 0.05 \
+  --input_mode msg \
+  --use_augment \
+  --ckptMD outputs_MD_msg/encoder_step3160.pt \
+  --outdir outputs_MDV_msg \
+  --device cuda

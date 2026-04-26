@@ -1,0 +1,22 @@
+# macOS specific files
+.DS_Store
+
+# VSCode settings
+.vscode/settings.json
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# PDF files
+*.pdf
+
+# Training checkpoints (optional, depending on user preference)
+# *.pt
+# *.pth
+
+# Evaluation results (optional)
+# *.json
