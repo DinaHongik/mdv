@@ -380,6 +380,9 @@ This section summarizes the paper-reported benchmark configuration and evaluatio
 | Target fields | 1,000 |
 | Source-target correspondence pairs | 1,000 |
 
+- The 413-document source inventory comprises 402 log-definition and related schema materials collected across 17 metropolitan and provincial offices of education in Korea, plus 11 common reference documents.
+- The inventory includes firewall (161), IPS (113), web application firewall (62), and VMS (25) documents, along with additional log-definition and related schema materials.
+
 ### Evaluation Metrics
 
 - **Hit@k**: Top-k accuracy, measuring whether the correct target field appears within the top-k candidates.
