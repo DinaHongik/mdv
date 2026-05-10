@@ -558,8 +558,8 @@ if __name__ == "__main__":
     ap.add_argument("--output_json", default="benchmark_results.json")
 
     # Serialization modes
-    ap.add_argument("--context_input_mode", choices=["raw_msg", "flat_field", "nmo", "msg"], default="flat_field")
-    ap.add_argument("--nmo_input_mode", choices=["nmo", "flat_field", "raw_msg", "msg"], default="nmo")
+    ap.add_argument("--context_input_mode", choices=["raw_msg", "context", "nmo", "msg"], default="context")
+    ap.add_argument("--nmo_input_mode", choices=["nmo", "context", "raw_msg", "msg"], default="nmo")
     ap.add_argument("--mask_name", action="store_true")
     ap.add_argument("--drop_type", action="store_true")
     ap.add_argument("--drop_path", action="store_true")

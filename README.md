@@ -278,6 +278,18 @@ python -m smartmap_mdv.train \
 ```markdown
 ## Benchmark Input Convention
 
+### Context Input Convention
+
+For the context setting, each source or target field follows the original log-definition field format rather than the tagged canonical NMO form. In the public implementation, this condition is realized through `context` serialization: the available field attributes are preserved in plain-text order, maintaining the source-side field-definition view before NMO tagging.
+
+```text
+<field name> <field type> <schema path> <field description> <example value>
+```
+
+This input is not a raw syslog message. It is a flattened field-definition text derived from the original log-definition document.
+
+### NMO Input Convention
+
 All matching and evaluation inputs are first canonicalized into NMO records. Raw syslog messages are not directly passed to the semantic matcher. Each source and target field is represented by the core NMO attributes `name`, `type`, and `path`, and is serialized as:
 
 ```text

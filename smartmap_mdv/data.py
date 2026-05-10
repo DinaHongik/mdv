@@ -30,7 +30,7 @@ def _format_path_text(path: str) -> str:
 
 def serialize_field_text(
     field: Dict[str, Any],
-    style: str = "flat_field",
+    style: str = "context",
     include_type: bool = True,
     include_path: bool = True,
     include_desc: bool = False,
@@ -87,7 +87,7 @@ def to_nmo_string(
     """
     Serialize a field dictionary into one of:
       - raw_msg: raw message/context only
-      - flat_field: flattened text without tags
+      - context: flattened text without tags
       - nmo: tagged NMO-style text using only NAME, TYPE, and PATH
     """
     config = DataConfig(no_placeholder=no_placeholder)
@@ -114,10 +114,10 @@ def to_nmo_string(
         "example": example_val,
     }
 
-    if input_mode == "flat_field":
+    if input_mode == "context":
         return serialize_field_text(
             field_view,
-            style="flat_field",
+            style="context",
             include_type=not drop_type,
             include_path=not drop_path,
             include_desc=not drop_desc,

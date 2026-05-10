@@ -7,7 +7,7 @@ class TrainConfig:
     # Backbone / input
     encoder_model: str = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
     mlm_model: str = "bert-base-multilingual-cased"
-    input_mode: Literal["raw_msg", "flat_field", "nmo"] = "nmo"
+    input_mode: Literal["raw_msg", "context", "nmo"] = "nmo"
     max_len: int = 512
 
     # Optimization

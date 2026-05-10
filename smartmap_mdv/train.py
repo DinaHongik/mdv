@@ -4,7 +4,7 @@ for semantic schema mapping.
 
 Input Modes:
 - raw_msg   : Treat each line as raw context text.
-- flat_field: Serialize each CSV line into flattened field text (without tags).
+- context   : Serialize each CSV line into flattened field text (without tags).
 - nmo       : Serialize each CSV line into NMO format ([NAME]...[TYPE]...).
 - msg       : Backward-compatible alias for raw_msg.
 """
@@ -154,8 +154,8 @@ class CsvLogDataset(Dataset):
 
         if self.input_mode == "nmo":
             return self._to_structured_text(row, mode="nmo")
-        if self.input_mode == "flat_field":
-            return self._to_structured_text(row, mode="flat_field")
+        if self.input_mode == "context":
+            return self._to_structured_text(row, mode="context")
 
         # For raw syslog-style lines, strip a leading tag prefix when present.
         line = row if isinstance(row, str) else ",".join(str(row.get(k, "") or "") for k in self.header_fields)
@@ -581,7 +581,7 @@ def main():
     parser.add_argument("--ckptMD", type=str, default=None, help="Path to pre-trained MD model for MDV init.")
     parser.add_argument("--encoding", type=str, default="utf-8", help="Input file encoding.")
 
-    parser.add_argument("--input_mode", choices=["raw_msg", "flat_field", "nmo", "msg"], default="nmo")
+    parser.add_argument("--input_mode", choices=["raw_msg", "context", "nmo", "msg"], default="nmo")
     parser.add_argument("--ablation", choices=["M", "MD", "MDV"], required=True)
     parser.add_argument("--encoder_model", type=str, default="sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
     parser.add_argument("--mlm_model", type=str, default="bert-base-multilingual-cased")

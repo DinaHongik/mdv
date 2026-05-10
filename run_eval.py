@@ -1206,7 +1206,7 @@ if __name__ == "__main__":
     ap.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
 
     # Input serialization
-    ap.add_argument("--input_mode", choices=["raw_msg", "flat_field", "nmo", "msg"], default="nmo")
+    ap.add_argument("--input_mode", choices=["raw_msg", "context", "nmo", "msg"], default="nmo")
     ap.add_argument("--mask_name", action="store_true")
     ap.add_argument("--drop_type", action="store_true")
     ap.add_argument("--drop_path", action="store_true")
